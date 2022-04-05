@@ -1,0 +1,19 @@
+R_DEF: Internal format may change without notice
+local
+color background
+drawable ic_accept_call
+drawable ic_avatar_default
+drawable ic_decline_call
+drawable ic_ring
+id ivAcceptCall
+id ivAvatar
+id ivDeclineCall
+id ivRing1
+id ivRing2
+id tvAccept
+id tvDecline
+id tvInfo
+id tvName
+layout activity_call_incoming
+string accept
+string decline

@@ -1,0 +1,33 @@
+{
+  "name": "call-screen-react-native-android",
+  "title": "React Native Call Screen Android",
+  "version": "1.0.1",
+  "description": "React Native module to display incoming call activity for Android.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bkdev98/react-native-incoming-call.git",
+    "baseUrl": "https://github.com/bkdev98/react-native-incoming-call"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": {
+    "name": "Appycodes",
+    "email": "debarshi@appycodes.com"
+  },
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
+  "readmeFilename": "README.md",
+  "peerDependencies": {
+    "react": "^16.8.1",
+    "react-native": ">=0.59.0-rc.0 <1.0.x"
+  },
+  "devDependencies": {
+    "react": "^16.8.3",
+    "react-native": "^0.59.10"
+  }
+}

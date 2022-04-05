@@ -9,8 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bkdev98/react-native-incoming-call.git",
-    "baseUrl": "https://github.com/bkdev98/react-native-incoming-call"
+    "url": "git+https://github.com/goappycodes/call-screen-react-native-android.git",
+    "baseUrl": "https://github.com/goappycodes/call-screen-react-native-android"
   },
   "keywords": [
     "react-native"

@@ -45,21 +45,15 @@ public class IncomingCallModule extends ReactContextBaseJavaModule {
         return "IncomingCall";
     }
 
+
+
+    
+
     @ReactMethod
     public void display(String uuid, String name, String avatar, String info, int timeout, Promise promise) {
         if (UnlockScreenActivity.active) {
             Log.d(MI_TAG, "Active");
             return;
-        }
-
-        if (!canDrawOverlayViews()) {
-            // permission not granted
-            Log.d(MI_TAG, "canDrawOverlayViewsNo-");
-            //onDisplayPopupPermission();
-            // write above answered permission code for MIUI here
-        } else {
-            permissionGrated = true;
-            Log.d(MI_TAG, "WE Have permission");
         }
 
         if (reactContext != null) {
@@ -82,19 +76,6 @@ public class IncomingCallModule extends ReactContextBaseJavaModule {
                 PackageManager packageManager = reactContext.getPackageManager();
                 if (i.resolveActivity(packageManager) != null) {
                     reactContext.startActivity(i);
-                    // new Timer().schedule(new TimerTask() {
-                    // @Override
-                    // public void run() {
-                    // // this code will be executed after timeout seconds
-                    // if (UnlockScreenActivity.checkPermission()) {
-                    // Log.d(MI_TAG, "PERMISSION TRUE");
-                    // // return true;
-                    // } else {
-                    // Log.d(MI_TAG, "PERMISSION FALSE");
-                    // // return false;
-                    // }
-                    // }
-                    // }, 5000);
                     Log.d(MI_TAG, "TRY");
                 } else {
                     Log.d(MI_TAG, "TRY ELSE");
@@ -178,18 +159,22 @@ public class IncomingCallModule extends ReactContextBaseJavaModule {
     }
 
 
-    public boolean canDrawOverlayViews() {
+    @ReactMethod
+    public void canDrawOverlayViews(Promise promise) {
+        boolean hasPermission = false;
         if (Build.VERSION.SDK_INT < 21) {
-            return true;
+            hasPermission = true;
         }
         Context con = reactContext;
         try {
             Log.d(MI_TAG, "TRYING_PER");
-            return Settings.canDrawOverlays(con);
+            hasPermission =  Settings.canDrawOverlays(con);
         } catch (NoSuchMethodError e) {
             Log.d(MI_TAG, "CATCH_NO_PER");
-            return canDrawOverlaysUsingReflection(con);
+            hasPermission =  canDrawOverlaysUsingReflection(con);
         }
+
+        promise.resolve(hasPermission);
     }
 
 
